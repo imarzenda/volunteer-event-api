@@ -54,10 +54,12 @@ Project ini dibuat sebagai bagian dari **assignment Internship Backend Developer
 
  - Akses API = "http://127.0.0.1:8000"
  - Semua endpoint API menggunakan prefix: http://127.0.0.1:8000/api
- - Buat struktur folder Auth dan Event
 
-   *Auth
-   -Register =  (
+## Testing API 
+ - Buat struktur folder Auth dan Event di insomnia
+
+   *Folder Auth
+   - Register =  (
        1. method = post,
        2. url = http://127.0.0.1:8000/api/register,
        3. body_json = {
