@@ -53,7 +53,53 @@ Project ini dibuat sebagai bagian dari **assignment Internship Backend Developer
  - Jalankan serve Laravel = "php artisan serve"
 
  - Akses API = "http://127.0.0.1:8000"
+ - Semua endpoint API menggunakan prefix: http://127.0.0.1:8000/api
+ - Buat struktur folder Auth dan Event
 
+   *Auth
+   -Register =  (
+       1. method = post,
+       2. url = http://127.0.0.1:8000/api/register,
+       3. body_json = {
+          "name": "Irfan Marzenda",
+          "email": "irfan@test.com",
+          "password": "password"
+        })
+   
+   - Login = (
+         1. method = POST,
+         2. URL: http://127.0.0.1:8000/api/login
+         3. json : {
+              "email": "irfan@test.com",
+              "password": "password"
+            } )
+         4. output : akan muncul token lalu simpan di environtment )
+     
+    *Folder Event
+    - Events List = (
+          1. method : get,
+          2. url : http://127.0.0.1:8000/api//events
+          3. auth : Bearer Token: isi token ketika awal login/regist
+      )
+    - Create Event = (
+          1. method = post
+          2. url :  http://127.0.0.1:8000/api/events
+          3. auth : Bearer Token: isi token ketika awal login/regist
+          4. json : {
+                      "title": "Seminar Backend",
+                      "description": "Belajar REST API Laravel",
+                      "date": "2026-01-20"
+      )
+    - Detail Event = (
+          1. method : get
+          2. URL : http://127.0.0.1:8000/api/events/1
+          3. Auth: Bearer Token: {{ _.token }} (isi token awal login)
+      )
+    - Join Event (
+          1. method : post
+          2. url : http://127.0.0.1:8000/api/events/1/join
+          3. 3. Auth: Bearer Token: {{ _.token }} (isi token awal login)
+      )
 
 ## Authentication
 - Autentikasi menggunakan Laravel Sanctum. Setelah login, user akan menerima Bearer Token yang digunakan untuk mengakses endpoint yang dilindungi.
